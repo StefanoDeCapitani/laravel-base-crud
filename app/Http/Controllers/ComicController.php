@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Comic;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreUpdateComic;
 
 class ComicController extends Controller
 {
@@ -24,9 +25,9 @@ class ComicController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Comic $comic)
+    public function create()
     {
-        return view("comics.create", compact("comic"));
+        return view("comics.create");
     }
 
     /**
@@ -35,8 +36,13 @@ class ComicController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUpdateComic $request)
     {
+        $data = $request->validated();
+        Comic::create($data);
+
+        return redirect()->route("comics.index");
+
     }
 
     /**
