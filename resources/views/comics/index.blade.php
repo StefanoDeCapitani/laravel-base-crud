@@ -18,7 +18,7 @@
         <div class="row row-cols-3 my-3">
             @foreach ($comics as $comic)
                 <div class="col p-3">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card">
                         <img class="card-img-top" src="{{ $comic->thumb }}" alt="Card image cap"> 
                         <div class="card-body">
                             <h5 class="card-title">{{ $comic->title }}</h5>

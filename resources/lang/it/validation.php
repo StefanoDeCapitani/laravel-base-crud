@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'accepted' => 'The :attribute must be accepted.',
+    /* 'accepted' => 'The :attribute must be accepted.',
     'active_url' => 'The :attribute is not a valid URL.',
     'after' => 'The :attribute must be a date after :date.',
     'after_or_equal' => 'The :attribute must be a date after or equal to :date.',
@@ -32,9 +32,9 @@ return [
     'boolean' => 'The :attribute field must be true or false.',
     'confirmed' => 'The :attribute confirmation does not match.',
     'date' => 'The :attribute is not a valid date.',
-    'date_equals' => 'The :attribute must be a date equal to :date.',
-    'date_format' => 'The :attribute does not match the format :format.',
-    'different' => 'The :attribute and :other must be different.',
+    'date_equals' => 'The :attribute must be a date equal to :date.', */
+    'date_format' => 'Il campo :attribute non rispetta il formato :format.',
+    /* 'different' => 'The :attribute and :other must be different.',
     'digits' => 'The :attribute must be :digits digits.',
     'digits_between' => 'The :attribute must be between :min and :max digits.',
     'dimensions' => 'The :attribute has invalid image dimensions.',
@@ -94,10 +94,10 @@ return [
     'not_regex' => 'The :attribute format is invalid.',
     'numeric' => 'The :attribute must be a number.',
     'password' => 'The password is incorrect.',
-    'present' => 'The :attribute field must be present.',
+    'present' => 'The :attribute field must be present.', */
     'regex' => 'Il formato del campo ":attribute" non è valido.',
     'required' => 'Il campo ":attribute" è obbligatorio.',
-    'required_if' => 'The :attribute field is required when :other is :value.',
+    /* 'required_if' => 'The :attribute field is required when :other is :value.',
     'required_unless' => 'The :attribute field is required unless :other is in :values.',
     'required_with' => 'The :attribute field is required when :values is present.',
     'required_with_all' => 'The :attribute field is required when :values are present.',
@@ -114,9 +114,9 @@ return [
     'string' => 'The :attribute must be a string.',
     'timezone' => 'The :attribute must be a valid zone.',
     'unique' => 'The :attribute has already been taken.',
-    'uploaded' => 'The :attribute failed to upload.',
+    'uploaded' => 'The :attribute failed to upload.', */
     'url' => 'Il campo ":attribute" deve essere un indirizzo valido.',
-    'uuid' => 'The :attribute must be a valid UUID.',
+    /* 'uuid' => 'The :attribute must be a valid UUID.', */
 
     /*
     |--------------------------------------------------------------------------
@@ -130,10 +130,10 @@ return [
     */
 
     'custom' => [
-        'prezzo' => [
-            'regex' => 'Il formato del campo ":attribute" non è corretto.',
+        'attribute-name' => [
+            'rule' => '',
         ],
-    ],
+    ], 
 
     /*
     |--------------------------------------------------------------------------
