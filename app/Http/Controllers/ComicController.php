@@ -39,10 +39,9 @@ class ComicController extends Controller
     public function store(StoreUpdateComic $request)
     {
         $data = $request->validated();
-        Comic::create($data);
+        $comic = Comic::create($data);
 
-        return redirect()->route("comics.index");
-
+        return redirect()->route("comics.show", $comic->id);
     }
 
     /**
@@ -53,7 +52,7 @@ class ComicController extends Controller
      */
     public function show(Comic $comic)
     {
-        //
+        return view("comics.show", compact("comic"));
     }
 
     /**
@@ -87,6 +86,8 @@ class ComicController extends Controller
      */
     public function destroy(Comic $comic)
     {
-        //
+        $comic->delete();
+
+        return redirect()->route("comics.index");
     }
 }

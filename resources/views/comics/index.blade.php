@@ -4,7 +4,7 @@
     use \Illuminate\Support\Str; 
 @endphp
 
-@section("title", "Comics | DC Comics");
+@section("title", "Comics | DC Comics")
 
 @section('content')
 <div class="mt-5 mb-5">
@@ -24,8 +24,12 @@
                             <h5 class="card-title">{{ $comic->title }}</h5>
                             <p class="card-text">{{ Str::limit($comic ->description, 100) }}</p>
                             <div class="d-flex">
-                                <a href="#" class="btn btn-primary">Dettagli</a>
-                                <a href="#" class="btn btn-danger ml-auto">Elimina</a>
+                                <a href="{{ route("comics.show", $comic->id) }}" class="btn btn-primary">Dettagli</a>
+                                <form action="{{ route("comics.destroy", $comic->id) }}" method="POST" class="ml-auto">
+                                    @csrf
+                                    @method("DELETE")
+                                    <button class="btn btn-danger">Elimina</button>
+                                </form>
                             </div>
                         </div>
                     </div>

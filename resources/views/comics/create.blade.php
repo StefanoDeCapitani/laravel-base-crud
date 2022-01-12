@@ -11,7 +11,7 @@
                 <a href="{{ route("comics.index") }}" class="btn btn-primary ml-auto">Torna all'elenco</a>
             </div>
         </div>
-        <form action="{{ route("comics.store")}}" method="post" class="row row-cols-2" novalidate>
+        <form action="{{ route("comics.store")}}" method="POST" class="row row-cols-2" novalidate>
             @csrf
             <div class="col">
                 <div class="form-group">
@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="sale_date">Data di uscita</label>
+                    <label for="sale_date">Data di vendita</label>
                     <input type="text" class="form-control @error("title") is-invalid @enderror" name="sale_date" id="sale_date" value="{{ old('sale_date') }}">
                     <div class="invalid-feedback">
                         @error('sale_date')
