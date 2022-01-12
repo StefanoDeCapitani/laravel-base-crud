@@ -26,8 +26,8 @@ class StoreUpdateComic extends FormRequest
         return [
             "title"=>"required", 
             "description"=>"required", 
-            "thumb"=>"required|URL", 
-            "price"=>"required|regex:/\d+.\d\d/", 
+            "thumb"=>"required|url", 
+            "price"=> array("required", "regex:/^\d+(\.\d\d)?$/"), 
             "series"=>"required", 
             "sale_date"=>"required|date_format:Y-m-d", 
             "type"=>"required"
