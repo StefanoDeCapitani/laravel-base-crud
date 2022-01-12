@@ -38,7 +38,7 @@
                 <img src="{{ $comic->thumb }}" class="w-75" alt="">
             </div>
         </div>
-        <a href="#" class="btn btn-primary mt-3">Modifica</a> {{-- {{ route("comics.edit") }} --}}
+        <a href="{{ route("comics.edit",  $comic->id) }}" class="btn btn-primary mt-3">Modifica</a> 
     </div>
 
 </div>
