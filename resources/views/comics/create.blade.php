@@ -64,6 +64,7 @@
         </style>
     </head>
     <body>
-        @dd($comic);
+        <h1>Create view
+        </h1>
     </body>
 </html>
