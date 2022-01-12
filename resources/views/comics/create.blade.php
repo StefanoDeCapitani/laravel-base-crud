@@ -1,70 +1,91 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.default')
 
-        <title>Laravel</title>
+@section("title", "Crea nuovo | DC Comics")
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+@section('content')
+<div class="mt-5 mb-5">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col d-flex align-items-center">
+                <h1>Crea nuova card</h1>
+                <a href="{{ route("comics.index") }}" class="btn btn-primary ml-auto">Torna all'elenco</a>
+            </div>
+        </div>
+        <form action="{{ route("comics.store")}}" method="post" class="row row-cols-2" novalidate>
+            @csrf
+            <div class="col">
+                <div class="form-group">
+                    <label for="title">Titolo</label>
+                    <input type="text" class="form-control @error("title") is-invalid @enderror" name="title" id="title" value="{{ old('title') }}">
+                    <div class="invalid-feedback">
+                        @error('title')
+                            {{ $message }}
+                        @enderror
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="description">Desrizione</label>
+                    <textarea type="text" class="form-control @error("title") is-invalid @enderror" rows="4" name="description" id="description" value="{{ old('description') }}"></textarea>
+                    <div class="invalid-feedback">
+                        @error('description')
+                            {{ $message }}
+                        @enderror
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="thumbnail">URL dell'immagine</label>
+                    <input type="text" class="form-control @error("title") is-invalid @enderror" name="thumb" id="thumbnail" value="{{ old('thumb') }}">
+                    <div class="invalid-feedback">
+                        @error('thumb')
+                            {{ $message }}
+                        @enderror
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="series">Serie</label>
+                    <input type="text" class="form-control @error("title") is-invalid @enderror" name="series" id="series" value="{{ old('series') }}">
+                    <div class="invalid-feedback">
+                        @error('series')
+                            {{ $message }}
+                        @enderror
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="type">Tipo</label>
+                    <input type="text" class="form-control @error("title") is-invalid @enderror" name="type" id="type" value="{{ old('type') }}">
+                    <div class="invalid-feedback">
+                        @error('type')
+                            {{ $message }}
+                        @enderror
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="sale_date">Data di uscita</label>
+                    <input type="text" class="form-control @error("title") is-invalid @enderror" name="sale_date" id="sale_date" value="{{ old('sale_date') }}">
+                    <div class="invalid-feedback">
+                        @error('sale_date')
+                            {{ $message }}
+                        @enderror
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="price">Prezzo in € </label>
+                    <input type="text" class="form-control @error("title") is-invalid @enderror" name="price" id="price" placeholder="Es: 9.99" value="{{ old('price') }}">
+                    <div class="invalid-feedback">
+                        @error('price')
+                            {{ $message }}
+                        @enderror
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <button class="btn btn-primary mt-3">Crea</button>
+            </div>
+        </form>
+    </div>  
+</div>
+@endsection
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>Create view
-        </h1>
-    </body>
-</html>

@@ -1,69 +1,37 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.default')
 
-        <title>Laravel</title>
+@php
+    use \Illuminate\Support\Str; 
+@endphp
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+@section("title", "Comics | DC Comics");
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        @dd($comics);
-    </body>
-</html>
+@section('content')
+<div class="mt-5 mb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col d-flex align-items-center">
+                <h1>Comics</h1>
+                <a href="{{ route("comics.create") }}" class="btn btn-primary ml-auto">Aggiungi nuovo</a>
+            </div>
+        </div>
+        <div class="row row-cols-3 my-3">
+            @foreach ($comics as $comic)
+                <div class="col p-3">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="{{ $comic->thumb }}" alt="Card image cap"> 
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $comic->title }}</h5>
+                            <p class="card-text">{{ Str::limit($comic ->description, 100) }}</p>
+                            <div class="d-flex">
+                                <a href="#" class="btn btn-primary">Dettagli</a>
+                                <a href="#" class="btn btn-danger ml-auto">Elimina</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</div>
+@endsection
