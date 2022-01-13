@@ -38,7 +38,7 @@
                     <h3>Prezzo</h3>
                     <p>{{ $comic->price . "€" }}</p>
                 </div>
-                <div class="d-flex mt-3">
+                <div class="d-flex mt-5">
                     <a href="{{ route("comics.edit",  $comic->id) }}" class="btn btn-primary">Modifica</a> 
                     @include('comics.partials.deleteform')
                 </div>
