@@ -15,6 +15,11 @@
                 <a href="{{ route("comics.create") }}" class="btn btn-primary ml-auto">Aggiungi nuovo</a>
             </div>
         </div>
+        @if(Session::get("message"))
+            <div class="alert alert-danger" role="alert">
+                {{ Session::get("message") }}
+            </div>
+        @endif
         <div class="row row-cols-3 my-3">
             @foreach ($comics as $comic)
                 <div class="col p-3">

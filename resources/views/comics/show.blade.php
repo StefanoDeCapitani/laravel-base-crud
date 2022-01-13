@@ -5,6 +5,11 @@
 @section("content")
 <div class="mt-5 mb-5">
     <div class="container">
+        @if(Session::get("message"))
+            <div class="alert alert-success" role="alert">
+                {{ Session::get("message") }}
+            </div>
+        @endif
         <div class="row mb-5">
             <div class="col d-flex align-items-center">
                 <h1>{{ $comic->title }}</h1>
@@ -33,13 +38,12 @@
                     <h3>Prezzo</h3>
                     <p>{{ $comic->price . "€" }}</p>
                 </div>
+                <a href="{{ route("comics.edit",  $comic->id) }}" class="btn btn-primary mt-3">Modifica</a> 
             </div>
             <div class="col d-flex justify-content-center align-items-start">
                 <img src="{{ $comic->thumb }}" class="w-75" alt="">
             </div>
         </div>
-        <a href="{{ route("comics.edit",  $comic->id) }}" class="btn btn-primary mt-3">Modifica</a> 
     </div>
-
 </div>
 @endsection
