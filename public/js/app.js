@@ -37265,10 +37265,48 @@ module.exports = function(module) {
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
+/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(bootstrap__WEBPACK_IMPORTED_MODULE_0__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
+
+window.addEventListener("DOMContentLoaded", function () {
+  var deleteForms = document.querySelectorAll(".delete-form");
+  deleteForms.forEach(function (deleteForm) {
+    deleteForm.addEventListener("submit", onFormSubmit);
+  });
+});
+
+function onFormSubmit(event) {
+  event.preventDefault();
+  var modalElement = document.getElementById("delete-modal");
+  adaptModalMessage(event, modalElement);
+  var deleteConfirmationModal = new bootstrap__WEBPACK_IMPORTED_MODULE_0__["Modal"](modalElement);
+  deleteConfirmationModal.show();
+  setEventListenerOnModalButtons(deleteConfirmationModal, this);
+}
+
+function adaptModalMessage(event, modalElement) {
+  var title = event.submitter.getAttribute("data-bs-title");
+  var modalMessage = modalElement.querySelector(".modal-body p");
+  modalMessage.innerHTML = title;
+}
+
+function setEventListenerOnModalButtons(deleteConfirmationModal, deleteForm) {
+  var closeButton = document.getElementById("modal-close-button");
+  closeButton.addEventListener("click", function () {
+    deleteConfirmationModal.hide();
+  });
+  var deleteButton = document.getElementById("delete-button");
+  deleteButton.addEventListener("click", function () {
+    deleteForm.submit();
+  });
+}
 
 /***/ }),
 

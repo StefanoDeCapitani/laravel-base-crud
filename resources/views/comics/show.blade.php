@@ -38,7 +38,10 @@
                     <h3>Prezzo</h3>
                     <p>{{ $comic->price . "€" }}</p>
                 </div>
-                <a href="{{ route("comics.edit",  $comic->id) }}" class="btn btn-primary mt-3">Modifica</a> 
+                <div class="d-flex mt-3">
+                    <a href="{{ route("comics.edit",  $comic->id) }}" class="btn btn-primary">Modifica</a> 
+                    @include('comics.partials.deleteform')
+                </div>
             </div>
             <div class="col d-flex justify-content-center align-items-start">
                 <img src="{{ $comic->thumb }}" class="w-75" alt="">

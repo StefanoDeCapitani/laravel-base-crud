@@ -30,11 +30,7 @@
                             <p class="card-text">{{ Str::limit($comic ->description, 100) }}</p>
                             <div class="d-flex">
                                 <a href="{{ route("comics.show", $comic->id) }}" class="btn btn-primary">Dettagli</a>
-                                <form action="{{ route("comics.destroy", $comic->id) }}" method="POST" class="ml-auto">
-                                    @csrf
-                                    @method("DELETE")
-                                    <button class="btn btn-danger">Elimina</button>
-                                </form>
+                                @include('comics.partials.deleteform')
                             </div>
                         </div>
                     </div>
